@@ -13,7 +13,8 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #1a1a1a; }
         .product-card { transition: transform 0.1s; }
         .product-card:active { transform: scale(0.97); }
-        .category-btn.active { background-color: #e11d48; color: white; border-color: #e11d48; }
+        /* Cor de fundo amarela para a categoria ativa, com texto preto para contraste */
+        .category-btn.active { background-color: #fbbf24; color: black; border-color: #fbbf24; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         
         /* Ajuste para inputs no fundo claro */
@@ -36,36 +37,36 @@
     <div id="tab-burguers" class="p-4 space-y-4">
         
         <div class="bg-white rounded-2xl shadow-sm product-card border border-gray-100 flex p-3">
-            <div class="w-24 h-24 bg-rose-50 rounded-xl flex items-center justify-center text-5xl flex-shrink-0">🍔</div>
+            <div class="w-24 h-24 bg-yellow-50 rounded-xl flex items-center justify-center text-5xl flex-shrink-0">🍔</div>
             <div class="pl-4 flex flex-col justify-between flex-1">
                 <div>
                     <h3 class="font-bold text-base text-gray-800 leading-tight">Smash Clássico</h3>
                     <p class="text-gray-500 text-[11px] mt-1">Pão brioche, carne 80g, queijo cheddar e maionese artesanal.</p>
                 </div>
                 <div class="flex items-center justify-between mt-2">
-                    <p class="text-rose-600 font-black text-lg">R$ 18,90</p>
+                    <p class="text-yellow-600 font-black text-lg">R$ 18,90</p>
                     <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
                         <button onclick="changeQty('smash_classico', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
                         <span id="qty-smash_classico" class="w-7 text-center font-black text-sm text-gray-800">0</span>
-                        <button onclick="changeQty('smash_classico', 1, 'Smash Clássico', 18.90)" class="w-7 h-7 flex items-center justify-center font-bold text-rose-600">+</button>
+                        <button onclick="changeQty('smash_classico', 1, 'Smash Clássico', 18.90)" class="w-7 h-7 flex items-center justify-center font-bold text-yellow-600">+</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="bg-white rounded-2xl shadow-sm product-card border border-gray-100 flex p-3">
-            <div class="w-24 h-24 bg-rose-50 rounded-xl flex items-center justify-center text-5xl flex-shrink-0">🥓</div>
+            <div class="w-24 h-24 bg-yellow-50 rounded-xl flex items-center justify-center text-5xl flex-shrink-0">🥓</div>
             <div class="pl-4 flex flex-col justify-between flex-1">
                 <div>
                     <h3 class="font-bold text-base text-gray-800 leading-tight">Smash Bacon Duplo</h3>
                     <p class="text-gray-500 text-[11px] mt-1">2 carnes 80g, muito queijo, bacon crocante e molho barbecue.</p>
                 </div>
                 <div class="flex items-center justify-between mt-2">
-                    <p class="text-rose-600 font-black text-lg">R$ 26,90</p>
+                    <p class="text-yellow-600 font-black text-lg">R$ 26,90</p>
                     <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
                         <button onclick="changeQty('smash_bacon', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
                         <span id="qty-smash_bacon" class="w-7 text-center font-black text-sm text-gray-800">0</span>
-                        <button onclick="changeQty('smash_bacon', 1, 'Smash Bacon Duplo', 26.90)" class="w-7 h-7 flex items-center justify-center font-bold text-rose-600">+</button>
+                        <button onclick="changeQty('smash_bacon', 1, 'Smash Bacon Duplo', 26.90)" class="w-7 h-7 flex items-center justify-center font-bold text-yellow-600">+</button>
                     </div>
                 </div>
             </div>
@@ -81,11 +82,11 @@
                     <p class="text-gray-500 text-[11px] mt-1">Batata frita palito crocante com sal e páprica.</p>
                 </div>
                 <div class="flex items-center justify-between mt-2">
-                    <p class="text-rose-600 font-black text-lg">R$ 12,00</p>
+                    <p class="text-yellow-600 font-black text-lg">R$ 12,00</p>
                     <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
                         <button onclick="changeQty('batata', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
                         <span id="qty-batata" class="w-7 text-center font-black text-sm text-gray-800">0</span>
-                        <button onclick="changeQty('batata', 1, 'Batata Média', 12.00)" class="w-7 h-7 flex items-center justify-center font-bold text-rose-600">+</button>
+                        <button onclick="changeQty('batata', 1, 'Batata Média', 12.00)" class="w-7 h-7 flex items-center justify-center font-bold text-yellow-600">+</button>
                     </div>
                 </div>
             </div>
@@ -101,11 +102,11 @@
                     <p class="text-gray-500 text-[11px] mt-1">Lata 350ml trincando de gelada.</p>
                 </div>
                 <div class="flex items-center justify-between mt-2">
-                    <p class="text-rose-600 font-black text-lg">R$ 6,00</p>
+                    <p class="text-yellow-600 font-black text-lg">R$ 6,00</p>
                     <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
                         <button onclick="changeQty('coca', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
                         <span id="qty-coca" class="w-7 text-center font-black text-sm text-gray-800">0</span>
-                        <button onclick="changeQty('coca', 1, 'Coca-Cola Lata', 6.00)" class="w-7 h-7 flex items-center justify-center font-bold text-rose-600">+</button>
+                        <button onclick="changeQty('coca', 1, 'Coca-Cola Lata', 6.00)" class="w-7 h-7 flex items-center justify-center font-bold text-yellow-600">+</button>
                     </div>
                 </div>
             </div>
@@ -114,7 +115,7 @@
 
     <div class="px-5 mt-8">
         <div class="bg-gray-50 p-6 rounded-3xl shadow-inner border border-gray-100">
-            <h4 class="font-black mb-4 uppercase text-[10px] tracking-widest text-rose-600 text-center">Dados para Entrega</h4>
+            <h4 class="font-black mb-4 uppercase text-[10px] tracking-widest text-yellow-600 text-center">Dados para Entrega</h4>
             <input id="nome-cliente" type="text" placeholder="Seu Nome" 
                    class="w-full p-4 rounded-2xl mb-3 text-sm outline-none">
             
@@ -133,10 +134,10 @@
 
     <div class="fixed bottom-6 left-5 right-5 bg-white h-20 rounded-3xl shadow-2xl flex items-center justify-between px-6 border border-gray-100 z-40">
         <div onclick="openCart()" class="cursor-pointer">
-            <p class="text-[9px] font-bold text-rose-600 uppercase tracking-widest">🛒 Carrinho</p>
+            <p class="text-[9px] font-bold text-yellow-600 uppercase tracking-widest">🛒 Carrinho</p>
             <p id="total-carrinho" class="text-xl font-black text-gray-800">R$ 0,00</p>
         </div>
-        <button onclick="finalizarPedido()" class="bg-rose-600 text-white h-12 px-8 rounded-2xl font-black shadow-lg active:scale-95 transition-all text-sm uppercase">
+        <button onclick="finalizarPedido()" class="bg-yellow-400 text-black h-12 px-8 rounded-2xl font-black shadow-lg active:scale-95 transition-all text-sm uppercase">
             Fechar Pedido
         </button>
     </div>
@@ -162,13 +163,13 @@
             const tabs = ['burguers', 'lados', 'bebidas'];
             tabs.forEach(t => {
                 document.getElementById('tab-' + t).classList.add('hidden');
-                document.getElementById('btn-' + t).classList.remove('active', 'text-white');
+                document.getElementById('btn-' + t).classList.remove('active', 'text-black');
                 document.getElementById('btn-' + t).classList.add('text-gray-400');
             });
 
             document.getElementById('tab-' + tab).classList.remove('hidden');
             const activeBtn = document.getElementById('btn-' + tab);
-            activeBtn.classList.add('active', 'text-white');
+            activeBtn.classList.add('active', 'text-black');
         }
 
         function changeQty(id, delta, nome = null, preco = null) {
@@ -213,12 +214,12 @@
                         <div class="flex justify-between items-center bg-gray-50 p-4 rounded-2xl border border-gray-100">
                             <div>
                                 <p class="font-bold text-gray-800 text-sm">${carrinho[id].nome}</p>
-                                <p class="text-rose-600 font-black text-xs">R$ ${(carrinho[id].preco * carrinho[id].qtd).toFixed(2).replace('.', ',')}</p>
+                                <p class="text-yellow-600 font-black text-xs">R$ ${(carrinho[id].preco * carrinho[id].qtd).toFixed(2).replace('.', ',')}</p>
                             </div>
                             <div class="flex items-center bg-white rounded-xl p-1 border border-gray-200">
                                 <button onclick="changeQty('${id}', -1)" class="w-8 h-8 font-bold text-gray-400">-</button>
                                 <span class="w-8 text-center font-black text-sm text-gray-800">${carrinho[id].qtd}</span>
-                                <button onclick="changeQty('${id}', 1)" class="w-8 h-8 font-bold text-rose-600">+</button>
+                                <button onclick="changeQty('${id}', 1)" class="w-8 h-8 font-bold text-yellow-600">+</button>
                             </div>
                         </div>
                     `;
@@ -235,7 +236,6 @@
             if (total === 0) return alert("Escolha pelo menos um smash burger!");
             if (!nome || !endereco || !pagamento) return alert("Preencha todos os campos para a entrega!");
 
-            // Usa \n e o encodeURIComponent para os emojis irem perfeitos
             let msg = `🍔 *NOVO PEDIDO - SMASH BURGUER'S*\n\n`;
             msg += `👤 *Cliente:* ${nome}\n`;
             msg += `📍 *Endereço:* ${endereco}\n`;
