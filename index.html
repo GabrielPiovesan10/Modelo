@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smash Burguer’s | Cardápio Digital Modelo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mata o efeito elástico no final da tela */
+        html, body { overscroll-behavior-y: none; }
+        
+        body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #1a1a1a; }
+        .product-card { transition: transform 0.1s; }
+        .product-card:active { transform: scale(0.97); }
+        .category-btn.active { background-color: #e11d48; color: white; border-color: #e11d48; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        /* Ajuste para inputs no fundo claro */
+        input, select { background-color: #f9fafb !important; border: 1px solid #e5e7eb !important; color: #1a1a1a !important; }
+    </style>
+</head>
+<body class="pb-32 relative">
+
+    <div class="w-full shadow-md">
+        <img src="banner.jpg" class="w-full h-auto block" alt="Banner Smash Burguer's" 
+             onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=800&auto=format&fit=crop';">
+    </div>
+
+    <div class="flex p-4 justify-start gap-3 sticky top-0 bg-white z-40 overflow-x-auto no-scrollbar border-b border-gray-100">
+        <button id="btn-burguers" onclick="switchTab('burguers')" class="category-btn active border border-gray-200 px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap transition-all">🍔 Smashs</button>
+        <button id="btn-lados" onclick="switchTab('lados')" class="category-btn border border-gray-200 text-gray-400 px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap transition-all">🍟 Porções</button>
+        <button id="btn-bebidas" onclick="switchTab('bebidas')" class="category-btn border border-gray-200 text-gray-400 px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap transition-all">🥤 Bebidas</button>
+    </div>
+
+    <div id="tab-burguers" class="p-4 space-y-4">
+        
+        <div class="bg-white rounded-2xl shadow-sm product-card border border-gray-100 flex p-3">
+            <div class="w-24 h-24 bg-rose-50 rounded-xl flex items-center justify-center text-5xl flex-shrink-0">🍔</div>
+            <div class="pl-4 flex flex-col justify-between flex-1">
+                <div>
+                    <h3 class="font-bold text-base text-gray-800 leading-tight">Smash Clássico</h3>
+                    <p class="text-gray-500 text-[11px] mt-1">Pão brioche, carne 80g, queijo cheddar e maionese artesanal.</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <p class="text-rose-600 font-black text-lg">R$ 18,90</p>
+                    <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
+                        <button onclick="changeQty('smash_classico', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
+                        <span id="qty-smash_classico" class="w-7 text-center font-black text-sm text-gray-800">0</span>
+                        <button onclick="changeQty('smash_classico', 1, 'Smash Clássico', 18.90)" class="w-7 h-7 flex items-center justify-center font-bold text-rose-600">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm product-card border border-gray-100 flex p-3">
+            <div class="w-24 h-24 bg-rose-50 rounded-xl flex items-center justify-center text-5xl flex-shrink-0">🥓</div>
+            <div class="pl-4 flex flex-col justify-between flex-1">
+                <div>
+                    <h3 class="font-bold text-base text-gray-800 leading-tight">Smash Bacon Duplo</h3>
+                    <p class="text-gray-500 text-[11px] mt-1">2 carnes 80g, muito queijo, bacon crocante e molho barbecue.</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <p class="text-rose-600 font-black text-lg">R$ 26,90</p>
+                    <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
+                        <button onclick="changeQty('smash_bacon', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
+                        <span id="qty-smash_bacon" class="w-7 text-center font-black text-sm text-gray-800">0</span>
+                        <button onclick="changeQty('smash_bacon', 1, 'Smash Bacon Duplo', 26.90)" class="w-7 h-7 flex items-center justify-center font-bold text-rose-600">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tab-lados" class="p-4 space-y-4 hidden">
+        <div class="bg-white rounded-2xl shadow-sm product-card border border-gray-100 flex p-3">
+            <div class="w-24 h-24 bg-yellow-50 rounded-xl flex items-center justify-center text-5xl flex-shrink-0">🍟</div>
+            <div class="pl-4 flex flex-col justify-between flex-1">
+                <div>
+                    <h3 class="font-bold text-base text-gray-800 leading-tight">Batata Média</h3>
+                    <p class="text-gray-500 text-[11px] mt-1">Batata frita palito crocante com sal e páprica.</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <p class="text-rose-600 font-black text-lg">R$ 12,00</p>
+                    <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
+                        <button onclick="changeQty('batata', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
+                        <span id="qty-batata" class="w-7 text-center font-black text-sm text-gray-800">0</span>
+                        <button onclick="changeQty('batata', 1, 'Batata Média', 12.00)" class="w-7 h-7 flex items-center justify-center font-bold text-rose-600">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tab-bebidas" class="p-4 space-y-4 hidden">
+        <div class="bg-white rounded-2xl shadow-sm product-card border border-gray-100 flex p-3">
+            <div class="w-24 h-24 bg-blue-50 rounded-xl flex items-center justify-center text-5xl flex-shrink-0">🥤</div>
+            <div class="pl-4 flex flex-col justify-between flex-1">
+                <div>
+                    <h3 class="font-bold text-base text-gray-800 leading-tight">Coca-Cola Lata</h3>
+                    <p class="text-gray-500 text-[11px] mt-1">Lata 350ml trincando de gelada.</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <p class="text-rose-600 font-black text-lg">R$ 6,00</p>
+                    <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
+                        <button onclick="changeQty('coca', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
+                        <span id="qty-coca" class="w-7 text-center font-black text-sm text-gray-800">0</span>
+                        <button onclick="changeQty('coca', 1, 'Coca-Cola Lata', 6.00)" class="w-7 h-7 flex items-center justify-center font-bold text-rose-600">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-5 mt-8">
+        <div class="bg-gray-50 p-6 rounded-3xl shadow-inner border border-gray-100">
+            <h4 class="font-black mb-4 uppercase text-[10px] tracking-widest text-rose-600 text-center">Dados para Entrega</h4>
+            <input id="nome-cliente" type="text" placeholder="Seu Nome" 
+                   class="w-full p-4 rounded-2xl mb-3 text-sm outline-none">
+            
+            <input id="endereco-cliente" type="text" placeholder="Endereço (Rua, Número, Bairro)" 
+                   class="w-full p-4 rounded-2xl mb-3 text-sm outline-none">
+
+            <select id="forma-pagamento" class="w-full p-4 rounded-2xl text-sm outline-none">
+                <option value="">Forma de Pagamento</option>
+                <option value="Pix">Pix (Mais rápido)</option>
+                <option value="Cartão (Entregador)">Cartão (Levar maquininha)</option>
+                <option value="Dinheiro">Dinheiro</option>
+            </select>
+        </div>
+        <p class="text-center text-gray-400 text-[9px] mt-4 font-bold uppercase tracking-widest">Desenvolvido por GP Tech</p>
+    </div>
+
+    <div class="fixed bottom-6 left-5 right-5 bg-white h-20 rounded-3xl shadow-2xl flex items-center justify-between px-6 border border-gray-100 z-40">
+        <div onclick="openCart()" class="cursor-pointer">
+            <p class="text-[9px] font-bold text-rose-600 uppercase tracking-widest">🛒 Carrinho</p>
+            <p id="total-carrinho" class="text-xl font-black text-gray-800">R$ 0,00</p>
+        </div>
+        <button onclick="finalizarPedido()" class="bg-rose-600 text-white h-12 px-8 rounded-2xl font-black shadow-lg active:scale-95 transition-all text-sm uppercase">
+            Fechar Pedido
+        </button>
+    </div>
+
+    <div id="cart-modal" class="fixed inset-0 bg-black/60 z-[60] hidden flex-col justify-end backdrop-blur-sm">
+        <div class="bg-white w-full rounded-t-3xl p-6 pb-12 max-h-[80vh] flex flex-col shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-black text-xl text-gray-800">Meus Itens</h3>
+                <button onclick="closeCart()" class="text-gray-400 font-bold text-3xl">&times;</button>
+            </div>
+            <div id="cart-items" class="overflow-y-auto flex-1 space-y-4 mb-6"></div>
+            <button onclick="closeCart()" class="w-full bg-gray-100 text-gray-800 py-4 rounded-2xl font-bold active:scale-95 transition-transform">
+                Adicionar mais itens
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let carrinho = {};
+        let total = 0;
+
+        function switchTab(tab) {
+            const tabs = ['burguers', 'lados', 'bebidas'];
+            tabs.forEach(t => {
+                document.getElementById('tab-' + t).classList.add('hidden');
+                document.getElementById('btn-' + t).classList.remove('active', 'text-white');
+                document.getElementById('btn-' + t).classList.add('text-gray-400');
+            });
+
+            document.getElementById('tab-' + tab).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tab);
+            activeBtn.classList.add('active', 'text-white');
+        }
+
+        function changeQty(id, delta, nome = null, preco = null) {
+            if (!carrinho[id]) {
+                carrinho[id] = { qtd: 0, nome: nome, preco: preco };
+            }
+            carrinho[id].qtd += delta;
+            if (carrinho[id].qtd < 0) carrinho[id].qtd = 0;
+            
+            const qtyElement = document.getElementById('qty-' + id);
+            if (qtyElement) qtyElement.innerText = carrinho[id].qtd;
+            
+            total = 0;
+            for (let k in carrinho) {
+                total += carrinho[k].qtd * carrinho[k].preco;
+            }
+            document.getElementById('total-carrinho').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            
+            if (!document.getElementById('cart-modal').classList.contains('hidden')) updateCartModal();
+        }
+
+        function openCart() {
+            updateCartModal();
+            document.getElementById('cart-modal').classList.remove('hidden');
+            document.getElementById('cart-modal').classList.add('flex');
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').classList.add('hidden');
+            document.getElementById('cart-modal').classList.remove('flex');
+        }
+
+        function updateCartModal() {
+            const container = document.getElementById('cart-items');
+            container.innerHTML = '';
+            let hasItems = false;
+
+            for (let id in carrinho) {
+                if (carrinho[id].qtd > 0) {
+                    hasItems = true;
+                    container.innerHTML += `
+                        <div class="flex justify-between items-center bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                            <div>
+                                <p class="font-bold text-gray-800 text-sm">${carrinho[id].nome}</p>
+                                <p class="text-rose-600 font-black text-xs">R$ ${(carrinho[id].preco * carrinho[id].qtd).toFixed(2).replace('.', ',')}</p>
+                            </div>
+                            <div class="flex items-center bg-white rounded-xl p-1 border border-gray-200">
+                                <button onclick="changeQty('${id}', -1)" class="w-8 h-8 font-bold text-gray-400">-</button>
+                                <span class="w-8 text-center font-black text-sm text-gray-800">${carrinho[id].qtd}</span>
+                                <button onclick="changeQty('${id}', 1)" class="w-8 h-8 font-bold text-rose-600">+</button>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            if (!hasItems) container.innerHTML = '<p class="text-center text-gray-400 py-10">Seu carrinho está vazio!</p>';
+        }
+
+        function finalizarPedido() {
+            const nome = document.getElementById('nome-cliente').value;
+            const endereco = document.getElementById('endereco-cliente').value;
+            const pagamento = document.getElementById('forma-pagamento').value;
+
+            if (total === 0) return alert("Escolha pelo menos um smash burger!");
+            if (!nome || !endereco || !pagamento) return alert("Preencha todos os campos para a entrega!");
+
+            // Usa \n e o encodeURIComponent para os emojis irem perfeitos
+            let msg = `🍔 *NOVO PEDIDO - SMASH BURGUER'S*\n\n`;
+            msg += `👤 *Cliente:* ${nome}\n`;
+            msg += `📍 *Endereço:* ${endereco}\n`;
+            msg += `💳 *Pagamento:* ${pagamento}\n`;
+            msg += `────────────────────\n`;
+            
+            for (let k in carrinho) {
+                if (carrinho[k].qtd > 0) {
+                    msg += `✅ ${carrinho[k].qtd}x ${carrinho[k].nome}\n`;
+                }
+            }
+
+            msg += `────────────────────\n`;
+            msg += `💰 *TOTAL: R$ ${total.toFixed(2).replace('.', ',')}*`;
+
+            const numeroWhatsApp = "5519993405480"; 
+            window.location.href = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(msg)}`;
+        }
+    </script>
+</body>
+</html>
