@@ -13,11 +13,9 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #1a1a1a; }
         .product-card { transition: transform 0.1s; }
         .product-card:active { transform: scale(0.97); }
-        /* Cor de fundo amarela para a categoria ativa, com texto preto para contraste */
         .category-btn.active { background-color: #fbbf24; color: black; border-color: #fbbf24; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         
-        /* Ajuste para inputs no fundo claro */
         input, select { background-color: #f9fafb !important; border: 1px solid #e5e7eb !important; color: #1a1a1a !important; }
     </style>
 </head>
@@ -44,7 +42,7 @@
                     <p class="text-gray-500 text-[11px] mt-1">Pão brioche, carne 80g, queijo cheddar e maionese artesanal.</p>
                 </div>
                 <div class="flex items-center justify-between mt-2">
-                    <p class="text-yellow-600 font-black text-lg">R$ 18,90</p>
+                    <p class="text-gray-900 font-black text-lg">R$ 18,90</p>
                     <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
                         <button onclick="changeQty('smash_classico', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
                         <span id="qty-smash_classico" class="w-7 text-center font-black text-sm text-gray-800">0</span>
@@ -62,7 +60,7 @@
                     <p class="text-gray-500 text-[11px] mt-1">2 carnes 80g, muito queijo, bacon crocante e molho barbecue.</p>
                 </div>
                 <div class="flex items-center justify-between mt-2">
-                    <p class="text-yellow-600 font-black text-lg">R$ 26,90</p>
+                    <p class="text-gray-900 font-black text-lg">R$ 26,90</p>
                     <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
                         <button onclick="changeQty('smash_bacon', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
                         <span id="qty-smash_bacon" class="w-7 text-center font-black text-sm text-gray-800">0</span>
@@ -82,7 +80,7 @@
                     <p class="text-gray-500 text-[11px] mt-1">Batata frita palito crocante com sal e páprica.</p>
                 </div>
                 <div class="flex items-center justify-between mt-2">
-                    <p class="text-yellow-600 font-black text-lg">R$ 12,00</p>
+                    <p class="text-gray-900 font-black text-lg">R$ 12,00</p>
                     <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
                         <button onclick="changeQty('batata', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
                         <span id="qty-batata" class="w-7 text-center font-black text-sm text-gray-800">0</span>
@@ -102,7 +100,7 @@
                     <p class="text-gray-500 text-[11px] mt-1">Lata 350ml trincando de gelada.</p>
                 </div>
                 <div class="flex items-center justify-between mt-2">
-                    <p class="text-yellow-600 font-black text-lg">R$ 6,00</p>
+                    <p class="text-gray-900 font-black text-lg">R$ 6,00</p>
                     <div class="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-100">
                         <button onclick="changeQty('coca', -1)" class="w-7 h-7 flex items-center justify-center font-bold text-gray-400">-</button>
                         <span id="qty-coca" class="w-7 text-center font-black text-sm text-gray-800">0</span>
@@ -214,7 +212,7 @@
                         <div class="flex justify-between items-center bg-gray-50 p-4 rounded-2xl border border-gray-100">
                             <div>
                                 <p class="font-bold text-gray-800 text-sm">${carrinho[id].nome}</p>
-                                <p class="text-yellow-600 font-black text-xs">R$ ${(carrinho[id].preco * carrinho[id].qtd).toFixed(2).replace('.', ',')}</p>
+                                <p class="text-gray-900 font-black text-xs">R$ ${(carrinho[id].preco * carrinho[id].qtd).toFixed(2).replace('.', ',')}</p>
                             </div>
                             <div class="flex items-center bg-white rounded-xl p-1 border border-gray-200">
                                 <button onclick="changeQty('${id}', -1)" class="w-8 h-8 font-bold text-gray-400">-</button>
@@ -234,7 +232,7 @@
             const pagamento = document.getElementById('forma-pagamento').value;
 
             if (total === 0) return alert("Escolha pelo menos um smash burger!");
-            if (!nome || !endereco || !pagamento) return alert("Preencha todos os campos para a entrega!");
+            if (!nome || !endereco || !pagamento) return alert("Preencha todos os campos!");
 
             let msg = `🍔 *NOVO PEDIDO - SMASH BURGUER'S*\n\n`;
             msg += `👤 *Cliente:* ${nome}\n`;
